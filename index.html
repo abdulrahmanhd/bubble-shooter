@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+ <meta charset="utf8" />
+ <title>Bubble Shooter</title> 
+ <link href="_css/main.css" rel="stylesheet" />
+ <link href="_css/game.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="page">
+        <div id="top_bar"></div> 
+        <div id="game">
+            <div id="board"></div>
+            <div id="bubbles_remaining"></div>
+        </div> 
+        <div id="footer_bar"> </div>
+        <div id="start_game" class="dialog">
+            <div id="start_game_message">
+                <h2> Start a new game </h2>        
+            </div>
+            <div class="but_start_game button">
+                New game
+            </div>
+        </div>
+    </div>
+</body>
+<script src="_js/yepnope.js"></script>
+<script src="_js/modernizr.js"></script>
+<script>
+    yepnope([{
+        load: 'https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.js',
+        complete: function () {
+            if (!window.jQuery) {
+                yepnope('_js/jquery-3.0.0.js');
+            }   
+        }
+    },
+    "_js/ui.js",
+    "_js/bubble.js", 
+    "_js/board.js",
+    "_js/collision-detector.js", 
+    {
+        load: '_js/game.js',
+        complete: function() {
+           $(function() {
+               var game = new BubbleShoot.Game();
+               game.init();
+           });
+        }
+    }])
+</script> 
+</html>            
