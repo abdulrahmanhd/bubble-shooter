@@ -1,7 +1,6 @@
 var BubbleShoot = window.BubbleShoot || {} ;
 BubbleShoot.Bubble = (function($) {
-  var Bubble = function(row,col,type,sprite) {
-    var that = this;
+  var Bubble = function(row, col, type, sprite) {
     this.getType = function() { return type; };
     this.getSprite = function () {return sprite; };
     this.getCol = function() { return col; };
@@ -10,9 +9,9 @@ BubbleShoot.Bubble = (function($) {
     this.setRow = function(rowIn) { row = rowIn; };
     this.getCoords = function() {
       var coords = {
-        left : that.getCol() * BubbleShoot.ui.BUBBLE_DIMS/2 +
+        left : this.getCol() * BubbleShoot.ui.BUBBLE_DIMS/2 +
           BubbleShoot.ui.BUBBLE_DIMS/2,
-        top : that.getRow() * BubbleShoot.ui.ROW_HEIGHT +
+        top : this.getRow() * BubbleShoot.ui.ROW_HEIGHT +
             BubbleShoot.ui.BUBBLE_DIMS/2  
       };
       return coords; 
